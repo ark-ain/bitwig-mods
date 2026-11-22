@@ -1,0 +1,307 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "automations-plus",
+    "name": "Arranger: Automations+",
+    "version": "1.0.0-dev.1",
+    "author": "ark-ain (based on shaboogen's Add Automation Points)",
+    "description": "Automations+: adds points over an automation time selection (dialog or direct), a Hold mode for new automation points, and Automation Tools after FL Studio's: Scale Levels, Normalize, Flip, Smooth, Decimate, with a live preview. Based on shaboogen's Add Automation Points."
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "linux",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "AutomationsPlus"
+  },
+  "targets": {
+    "com.bitwig.flt.widget.core.timeline.XzI.MRY": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/XzI",
+      "name": "MRY",
+      "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/interaction/pwQ;LeoW;)LdoW;"
+    },
+    "com.bitwig.flt.widget.core.timeline.XzI.UNj": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/XzI",
+      "name": "UNj",
+      "descriptor": "(LeoW;)Z"
+    },
+    "com.bitwig.flt.widget.core.timeline.interaction.Hv3.MRY": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/interaction/Hv3",
+      "name": "MRY",
+      "descriptor": "(LdJI;)V"
+    },
+    "com.bitwig.flt.widget.core.timeline.XzI.cfM": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/XzI",
+      "name": "cfM",
+      "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/interaction/pwQ;LeoW;LdJH;)V"
+    },
+    "com.bitwig.windowing_system.RYd.cfM": {
+      "kind": "method",
+      "owner": "com/bitwig/windowing_system/RYd",
+      "name": "cfM",
+      "descriptor": "(LeoW;)Z"
+    },
+    "com.bitwig.flt.widget.core.timeline.interaction.brd.init": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/interaction/brd",
+      "name": "<init>",
+      "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/XzI;Lcom/bitwig/flt/widget/core/timeline/interaction/pwQ;LeoW;ZZLcom/bitwig/flt/widget/core/timeline/interaction/cuN;Z)V"
+    },
+    "eoW.wGc": {
+      "kind": "method",
+      "owner": "eoW",
+      "name": "wGc",
+      "descriptor": "()Z"
+    },
+    "com.bitwig.flt.widget.core.timeline.interaction.InsertAndMoveValueEventDragAction.init": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/interaction/InsertAndMoveValueEventDragAction",
+      "name": "<init>",
+      "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/XzI;Lcom/bitwig/flt/widget/core/timeline/interaction/pwQ;Lcom/bitwig/base/geom/DoublePoint;LeoW;Z)V"
+    },
+    "com.bitwig.flt.widget.core.timeline.interaction.AUY.init": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/interaction/AUY",
+      "name": "<init>",
+      "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/Bfy;Lcom/bitwig/flt/widget/core/timeline/interaction/pwQ;ZLcom/bitwig/flt/widget/core/timeline/interaction/cuN;)V"
+    },
+    "wyB.UNj": {
+      "kind": "method",
+      "owner": "wyB",
+      "name": "UNj",
+      "descriptor": "(D)V"
+    },
+    "wyB.hUR": {
+      "kind": "method",
+      "owner": "wyB",
+      "name": "hUR",
+      "descriptor": "(D)V"
+    },
+    "wSr.PD3": {
+      "kind": "method",
+      "owner": "wSr",
+      "name": "PD3",
+      "descriptor": "(Z)V"
+    },
+    "bih.cfM": {
+      "kind": "method",
+      "owner": "bih",
+      "name": "cfM",
+      "descriptor": "(DD)V"
+    },
+    "com.bitwig.flt.document.core.master.IOJ": {
+      "kind": "class",
+      "class": "com/bitwig/flt/document/core/master/IOJ"
+    },
+    "com.bitwig.flt.widget.core.timeline.interaction.AUY.IwV": {
+      "kind": "field",
+      "owner": "com/bitwig/flt/widget/core/timeline/interaction/AUY",
+      "name": "IwV",
+      "descriptor": "Z"
+    },
+    "com.bitwig.flt.document.core.master.IOJ.init": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/document/core/master/IOJ",
+      "name": "<init>",
+      "descriptor": "()V"
+    },
+    "dND.init": {
+      "kind": "method",
+      "owner": "dND",
+      "name": "<init>",
+      "descriptor": "()V"
+    },
+    "dND.MRY": {
+      "kind": "method",
+      "owner": "dND",
+      "name": "MRY",
+      "descriptor": "(LeoX;DDLeoW;I)LdrX;"
+    },
+    "dND.cfM": {
+      "kind": "method",
+      "owner": "dND",
+      "name": "cfM",
+      "descriptor": "(Lcom/bitwig/graphics/SYo;)V"
+    },
+    "dNN.ELS": {
+      "kind": "method",
+      "owner": "dNN",
+      "name": "ELS",
+      "descriptor": "()LdyL;"
+    },
+    "dWb.init": {
+      "kind": "method",
+      "owner": "dWb",
+      "name": "<init>",
+      "descriptor": "()V"
+    },
+    "dtX.init": {
+      "kind": "method",
+      "owner": "dtX",
+      "name": "<init>",
+      "descriptor": "()V"
+    }
+  },
+  "hooks": [
+    {
+      "id": "hold-mode-double-click-description",
+      "target": "com.bitwig.flt.widget.core.timeline.XzI.MRY",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKESTATIC",
+        "target": "com.bitwig.flt.widget.core.timeline.XzI.UNj",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "holdModifierDescription",
+        "descriptor": "(LeoW;)Z",
+        "args": []
+      }
+    },
+    {
+      "id": "hold-mode-insert-and-move",
+      "target": "com.bitwig.flt.widget.core.timeline.interaction.Hv3.MRY",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKESTATIC",
+        "target": "com.bitwig.flt.widget.core.timeline.XzI.UNj",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "holdModifierInsertAndMove",
+        "descriptor": "(LeoW;)Z",
+        "args": []
+      }
+    },
+    {
+      "id": "hold-mode-double-click",
+      "target": "com.bitwig.flt.widget.core.timeline.XzI.cfM",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEVIRTUAL",
+        "target": "com.bitwig.windowing_system.RYd.cfM",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "holdModifierDoubleClick",
+        "descriptor": "(Lcom/bitwig/windowing_system/RYd;LeoW;)Z",
+        "args": []
+      }
+    },
+    {
+      "id": "hold-mode-click-insert",
+      "target": "com.bitwig.flt.widget.core.timeline.interaction.brd.init",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEVIRTUAL",
+        "target": "eoW.wGc",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "holdModifierClick",
+        "descriptor": "(LeoW;)Z",
+        "args": []
+      }
+    },
+    {
+      "id": "hold-mode-insert-and-drag",
+      "target": "com.bitwig.flt.widget.core.timeline.interaction.InsertAndMoveValueEventDragAction.init",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEVIRTUAL",
+        "target": "eoW.wGc",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "holdModifierInsertAndDrag",
+        "descriptor": "(LeoW;)Z",
+        "args": []
+      }
+    },
+    {
+      "id": "hold-mode-pencil",
+      "target": "com.bitwig.flt.widget.core.timeline.interaction.AUY.init",
+      "transform": "INSERT_BEFORE_FINAL_RETURN",
+      "bridge": {
+        "method": "holdModePencil",
+        "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/interaction/AUY;)V",
+        "args": [
+          "this"
+        ]
+      }
+    },
+    {
+      "id": "time-selection-from",
+      "target": "wyB.UNj",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "timeSelectionFrom",
+        "descriptor": "(D)V",
+        "args": [
+          "arg1"
+        ]
+      }
+    },
+    {
+      "id": "time-selection-to",
+      "target": "wyB.hUR",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "timeSelectionTo",
+        "descriptor": "(D)V",
+        "args": [
+          "arg1"
+        ]
+      }
+    },
+    {
+      "id": "time-selection-active",
+      "target": "wSr.PD3",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "timeSelectionActive",
+        "descriptor": "(Z)V",
+        "args": [
+          "arg1"
+        ]
+      }
+    },
+    {
+      "id": "time-selection-context",
+      "target": "bih.cfM",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "timeSelectionContext",
+        "descriptor": "(Lbih;)V",
+        "args": [
+          "this"
+        ]
+      }
+    }
+  ],
+  "opens": [
+    "com.bitwig.flt.document.core.master.IOJ",
+    "com.bitwig.flt.document.core.master.IOJ.init",
+    "com.bitwig.flt.widget.core.timeline.interaction.AUY.IwV",
+    "dND.MRY",
+    "dND.cfM",
+    "dND.init",
+    "dNN.ELS",
+    "dWb.init",
+    "dtX.init"
+  ],
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

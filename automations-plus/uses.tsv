@@ -1,0 +1,205 @@
+C	AQw
+C	DEl
+C	Dxn
+C	GVR
+C	ICh
+C	Jsq
+C	LEn
+C	LJt
+C	PQT
+C	Tgk
+C	VGL
+C	YvI
+C	aL
+C	bDS
+C	big
+C	bih
+C	bnW
+C	cU
+C	com/bitwig/base/geom/FloatRectangle
+C	com/bitwig/base/geom/pCj
+C	com/bitwig/flt/app/CHR
+C	com/bitwig/flt/control_surface/values/DecimalValueTypeTruncatableString
+C	com/bitwig/flt/document/core/master/IOJ
+C	com/bitwig/flt/document/core/master/eD
+C	com/bitwig/flt/document/core/master/g2L
+C	com/bitwig/flt/document/core/master/zwV
+C	com/bitwig/flt/widget/core/timeline/XzI
+C	com/bitwig/flt/widget/core/timeline/interaction/AUY
+C	com/bitwig/graphics/SYo
+C	com/bitwig/ramona/core/AVL
+C	com/bitwig/ramona/core/OLR
+C	com/bitwig/ramona/core/oDc
+C	com/bitwig/windowing_system/RYd
+C	dAd
+C	dJM
+C	dND
+C	dNF
+C	dNH
+C	dNe
+C	dOZ
+C	dOu
+C	dPi
+C	dWb
+C	dXA
+C	dXp
+C	doW
+C	dp3
+C	dpN
+C	drX
+C	dsP
+C	dtX
+C	duY
+C	dve
+C	dyL
+C	eeY
+C	eoK
+C	eoW
+C	eoX
+C	fY
+C	foz
+C	gDs
+C	hMP
+C	iav
+C	iok
+C	jRs
+C	la1
+C	lkr
+C	mdl
+C	qae
+C	qiX
+C	rMe
+C	ujq
+C	vcm
+C	vjp
+C	yiy
+F	com/bitwig/base/geom/pCj	cfM	Lcom/bitwig/base/geom/pCj;	com/bitwig/base/geom/pCj
+F	com/bitwig/flt/widget/core/timeline/interaction/AUY	IwV	Z	com/bitwig/flt/widget/core/timeline/interaction/AUY
+F	dOZ	FzB	LdOZ;	dOZ
+F	dOZ	IwV	LdOZ;	dOZ
+F	dOZ	cfM	LdOZ;	dOZ
+F	jRs	MRY	LjRs;	jRs
+F	jRs	cfM	LjRs;	jRs
+M	DEl	FzB	()LjRs;	DEl
+M	DEl	MRY	(D)V	DEl
+M	DEl	cfM	()D	DEl
+M	DEl	cfM	(D)V	DEl
+M	DEl	dU_	()D	DEl
+M	DEl	hUR	(Ljava/lang/Class;)Ljava/lang/Object;	com/bitwig/ramona/core/AVL
+M	DEl	x3t	()D	SMz
+M	Dxn	jG	()Llkr;	Dxn
+M	GVR	cfM	()Ljava/util/List;	BmP
+M	GVR	tSS	()LPQT;	BmP
+M	ICh	FzB	()Ljava/util/List;	St
+M	Jsq	QWG	()D	Jsq
+M	Jsq	hUR	(Ljava/lang/Class;)Ljava/lang/Object;	com/bitwig/ramona/core/AVL
+M	Jsq	x3t	()D	SMz
+M	LEn	ce_	()Lcom/bitwig/flt/document/core/master/g2L;	LEn
+M	PQT	Hnt	(DZ)I	PSn
+M	PQT	Hnt	(LYvI;I)V	PSn
+M	PQT	MRY	(Lqae;)I	PSn
+M	PQT	bU_	()Lvcm;	PQT
+M	PQT	cfM	()Ljava/util/List;	Zzj
+M	PQT	cfM	(DDLjRs;DLvcm;)LhMP;	bma
+M	PQT	cfM	(Lqae;)V	PSn
+M	Tgk	getClass	()Ljava/lang/Class;	-
+M	VGL	<init>	(LrMe;Ljava/lang/Object;Ljava/lang/Object;)V	VGL
+M	aL	FzB	()D	aL
+M	aL	MRY	(D)D	aL
+M	aL	UNj	()D	aL
+M	aL	cfM	(D)D	aL
+M	aL	wGc	(D)Lcom/bitwig/flt/control_surface/values/DecimalValueTypeTruncatableString;	aL
+M	bDS	<init>	(Z)V	bDS
+M	bDS	getBoolValue	()Z	bDS
+M	bDS	setBoolValue	(Z)V	bDS
+M	big	LEd	()Lcom/bitwig/ramona/core/OLR;	big
+M	big	UNj	()LICh;	big
+M	bih	LEd	()Lcom/bitwig/ramona/core/OLR;	big
+M	bnW	E3	()LTgk;	bnW
+M	bnW	fJR	()LTgk;	bnW
+M	cU	cfM	(DDZDDD)D	cU
+M	com/bitwig/base/geom/FloatRectangle	<init>	(FFFF)V	com/bitwig/base/geom/FloatRectangle
+M	com/bitwig/flt/app/CHR	Grk	()Lcom/bitwig/flt/app/CHR;	com/bitwig/flt/app/CHR
+M	com/bitwig/flt/app/CHR	hUR	(Ljava/lang/String;)V	com/bitwig/flt/app/CHR
+M	com/bitwig/flt/control_surface/values/DecimalValueTypeTruncatableString	get	()Ljava/lang/String;	com/bitwig/flt/control_surface/values/DecimalValueTypeTruncatableString
+M	com/bitwig/flt/document/core/master/IOJ	<init>	()V	com/bitwig/flt/document/core/master/IOJ
+M	com/bitwig/flt/document/core/master/IOJ	MRY	()Z	com/bitwig/ramona/core/WzZ
+M	com/bitwig/flt/document/core/master/IOJ	cfM	(Lcom/bitwig/ramona/core/oDc;Ljava/lang/String;)Z	com/bitwig/ramona/core/WzZ
+M	com/bitwig/flt/widget/core/timeline/XzI	UNj	(LeoW;)Z	com/bitwig/flt/widget/core/timeline/XzI
+M	com/bitwig/graphics/SYo	Hnt	(Liok;)V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	IwV	(D)V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	MRY	(DD)V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	MRY	(Liok;)V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	cfM	(DD)V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	cfM	(DDDDDD)V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	cfM	(DDDDLiok;)V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	hbP	()V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	nVd	()V	com/bitwig/graphics/SYo
+M	com/bitwig/graphics/SYo	wGc	()V	com/bitwig/graphics/SYo
+M	com/bitwig/ramona/core/AVL	hUR	(Ljava/lang/Class;)Ljava/lang/Object;	com/bitwig/ramona/core/AVL
+M	com/bitwig/windowing_system/RYd	cfM	(LeoW;)Z	com/bitwig/windowing_system/RYd
+M	dAd	IwV	(Ljava/lang/String;)V	dzq
+M	dAd	cfM	(LAQw;)LdAd;	dAd
+M	dND	<init>	()V	dND
+M	dND	ELS	()LdyL;	dNN
+M	dND	FzB	(LdNe;)V	dNN
+M	dND	Hnt	(Lujq;)V	dNN
+M	dND	Ktv	()LdND;	dND
+M	dND	LzO	()LdND;	dNJ
+M	dND	LzO	(Z)V	dve
+M	dND	MRY	(LeoX;DDLeoW;I)LdrX;	dND
+M	dND	TtY	(Lcom/bitwig/base/geom/pCj;)J	dve
+M	dND	Txc	(D)V	dvW
+M	dND	cfM	(Lcom/bitwig/graphics/SYo;)V	dND
+M	dND	cfM	(LdNH;)V	dND
+M	dND	iHb	(Lcom/bitwig/base/geom/pCj;)J	dve
+M	dND	jbi	()V	dve
+M	dNF	<init>	(LdND;I)V	dNF
+M	dOu	cfM	(D)Ljava/lang/String;	dOu
+M	dOu	jF_	()LdNe;	dOu
+M	dPi	<init>	(Ldve;LdOZ;LdOZ;JJ)V	dPi
+M	dWb	<init>	()V	dWb
+M	dWb	HL	(Ldve;)V	dvW
+M	dWb	Hnt	(J)LdXA;	dWb
+M	dWb	IwV	(I)LdWb;	dWb
+M	dWb	JJY	()LdXA;	dWb
+M	dWb	TtY	(Lcom/bitwig/base/geom/pCj;)J	dve
+M	dWb	UNj	(I)LdWb;	dWb
+M	dWb	cfM	(Ldve;F)V	dWb
+M	dWb	iHb	(Lcom/bitwig/base/geom/pCj;)J	dve
+M	dXp	cfM	(LeeY;)LdXp;	dXp
+M	dXp	gfw	()LdXp;	dXp
+M	doW	<init>	(Ljava/lang/String;Ljava/util/function/Consumer;)V	doW
+M	dp3	nfq	()D	asx
+M	dp3	x3t	()D	SMz
+M	dpN	TVZ	()LdpN;	dpN
+M	dpN	asyncExec	(Ljava/lang/Runnable;)V	dpN
+M	dpN	hbP	(Ljava/lang/String;)Ljava/lang/String;	dpN
+M	dtX	<init>	()V	dtX
+M	dtX	kg_	()V	dtX
+M	duY	Grk	(Ljava/lang/String;)V	duu
+M	duY	MIO	(Ljava/lang/String;)LduY;	duY
+M	duY	jbi	()V	dve
+M	dve	TMF	(Ljava/lang/Class;)Ljava/lang/Object;	dve
+M	eeY	cfM	(Ljava/lang/String;Liok;)LeeY;	eeY
+M	eoW	wGc	()Z	eoW
+M	fY	cfM	(Ljava/lang/String;LgDs;)D	fY
+M	foz	eventOccurred	(Ljava/lang/Object;)V	foz
+M	iav	TD2	()LPQT;	jnE
+M	iok	cfM	(III)Liok;	iok
+M	la1	LIK	()Ldp3;	zZi
+M	la1	QWG	()D	Jsq
+M	la1	SVQ	()Liav;	Gbb
+M	la1	dE_	()D	zZi
+M	la1	hUR	(Ljava/lang/Class;)Ljava/lang/Object;	com/bitwig/ramona/core/AVL
+M	la1	sut	()Z	zZi
+M	la1	x3t	()D	SMz
+M	mdl	ODA	()LhMP;	gRc
+M	mdl	UNj	()Lyiy;	mdl
+M	qiX	gfw	()LaL;	ZFp
+M	vjp	cfM	(Ljava/lang/String;)Lvjp;	vjp
+M	yiy	LaE	()LGVR;	Fd2
+M	yiy	MYI	()LLEn;	yiy
+M	yiy	cfM	(DZ)D	yiy
+M	yiy	d3	()Lcom/bitwig/flt/document/core/master/eD;	Fd2
+M	yiy	hUR	(Ljava/lang/Class;)Ljava/lang/Object;	com/bitwig/ramona/core/AVL

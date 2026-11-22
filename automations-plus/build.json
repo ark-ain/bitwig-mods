@@ -1,0 +1,7 @@
+{
+  "release": 21,
+  "kit": true,
+  "classpath_mods": [
+    "action-menu-composition-framework@0.5.0-dev.16"
+  ]
+}
