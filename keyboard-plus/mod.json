@@ -4,9 +4,9 @@
     "id": "keyboard-plus",
     "name": "Interface: Keyboard+ (Linux)",
     "area": "Interface",
-    "version": "0.2.0-dev.1",
+    "version": "0.3.0-dev.1",
     "author": "ark-ain",
-    "description": "Linux only (X11 or Xwayland). Keys pressed while a plug-in window has the focus go to Bitwig: play notes with the computer keyboard, Space for the transport, shortcuts. Toggle it with the 'Toggle Keyboard+' action.",
+    "description": "Linux only (X11 or Xwayland). Keys pressed while a plug-in window has the focus also go to Bitwig: play notes with the computer keyboard, Space for the transport, shortcuts. The plug-in still gets its keys. Toggle it with the 'Toggle Keyboard+' action.",
     "documentation": "readme",
     "tags": [
       "linux",

@@ -1,90 +1,107 @@
 # Arranger: Automations+
 
-**Automations+** is based on shaboogen's [Add Automation Points](https://github.com/shaboogen-dev/Mods) (MIT licence, (c) 2026 shaboogen). It has its own mod ID (`automations-plus`) and action IDs, so it can be installed beside the original; you'll usually want only one of the two.
+Tools for drawing and reshaping automation in Bitwig Studio:
 
-For Bitwig 6.1.4 (built against the Linux x64 build). Needs **Framework: Action and Menu Registration** 0.5.0 or later.
+- **Add Automation Points**: two points over a time selection, with the values and curve you choose, from a dialog or in one keystroke;
+- **Hold mode**: every new automation point is a hold point (step automation) until you switch it off;
+- **Automation Tools**: Scale Levels, Normalize, Flip, Smooth and Decimate, with a live preview.
 
-Compared with Add Automation Points 1.1.0-dev.2, it adds: a **Hold** toggle in the dialog, **Add Automation Points** without the dialog (as Bitwig's Quantize beside Quantize…), **Hold mode** for every new automation point, and **Automation Tools** after FL Studio's envelope tools.
+Every edit is one Undo step.
 
-Adds automation points at the start and the end of a time selection on an automation lane, with the values and the curve you choose, as one Undo step.
+## Requirements
 
-## If you used Add Automation Points before
+- Bitwig Studio 6.x with [Patchbay](https://github.com/shaboogen-dev/Patchbay). The mod is written against Bitwig 6.1.4; Patchbay translates it to the other versions and platforms it supports.
+- **Framework: Actions and Menus** (comes with Patchbay).
 
-Automations+ is a separate mod: untick or remove *Arranger: Add Automation Points* in Patchbay (both would add the same menu entries). Two things don't carry over:
+## Install
 
-- the dialog's last choices and Hold mode: copy `mods/add-automation-points/settings.properties` to `mods/automations-plus/` in BML's settings folder (`~/.config/bml` on Linux);
-- shortcuts given to its actions: give them again in **Settings > Shortcuts** (the action IDs now start with `automations_plus`).
+Download `automations-plus-<version>.zip` from the [Releases](https://github.com/ark-ain/bitwig-mods/releases), then in Patchbay: **Mods → Add Mod…**, tick **Arranger: Automations+** and **Load**.
 
-## Using it
+## Add Automation Points
 
-Make a time selection on an automation lane (in the arranger, or in a clip's automation in the detail editor), then run **Add Automation Points…** (the dialog) from:
+Make a time selection on an automation lane (in the arranger, or in a clip's automation in the detail editor), then choose **Add Automation Points…** from:
 
-- **the time selection's right-click menu**;
-- **the time-selection toolbar's dropdown**;
-- **a shortcut** (Settings > Shortcuts) or **the Commander**: it runs on the last time selection made on an automation lane.
+- the time selection's right-click menu;
+- the time-selection toolbar's dropdown;
+- a shortcut (Settings > Shortcuts) or the Commander: it runs on the last time selection made on an automation lane.
 
-The menu entry is shown only while there is such a time selection and its points have one place to go (see below). Its action ID is `automations_plus`.
+The entry is shown only while there is such a time selection and its points have one place to go (see *Automation clips*).
 
-## Automation clips
+### The dialog
 
-On an arranger automation lane, a time selection inside an **automation clip** edits the clip's own points, as Bitwig plays them: the selection is mapped into the clip's time (its position, play start and loop). The clip's content is changed, so a looped clip changes in every pass, and clips that share content change together.
-
-A time selection that is only partly inside an automation clip, covers more than one clip, or runs across the end of a clip's loop pass has no single place for its points, so the entry isn't shown (from a shortcut or the Commander, nothing happens and the reason is logged). Outside clips, the lane's own automation is edited.
-
-## The dialog
-
-- **Point 1** and **Point 2**: each can be switched on or off. Their values are in the automated parameter's own units (dB, Hz, %...) and start at the automation's current values at the start and the end of the selection.
-- **Hold**: both added points are hold points: the automation keeps each point's value until the next point, where it jumps. With Hold and Point 1 on, the curve has no effect and is faded. 
-- **Curve**: the curve from Point 1 to Point 2, edited like the curve of an ADSR segment: drag it, Ctrl+click to type a value, double-click to reset it to 0%. The preview follows the two values, so a falling range previews a falling curve, and dragging follows the preview: dragging up bends the curve up, whichever way it runs.
+- **Point 1** and **Point 2**: each can be switched on or off. Values are in the parameter's own units (dB, Hz, %…) and start at the automation's current values at the start and the end of the selection.
+- **Hold**: both points are hold points: the automation keeps each point's value until the next point, where it jumps. With Hold and Point 1 on, the curve has no effect and is greyed out.
+- **Curve**: the curve from Point 1 to Point 2, edited like an ADSR segment: drag it, Ctrl+click to type a value, double-click to reset it to 0%. Dragging up always bends the curve up, whichever way it runs.
 
 On **OK**:
 
-- With **both points** on, the points already inside the selection (its edges included) are replaced by the two new ones.
-- With **one point** on, it is added and the existing points stay. With only Point 2, the curve is applied to the last existing point inside the selection.
-- With **both off**, nothing changes.
+- with **both points** on, the points already inside the selection (edges included) are replaced by the two new ones;
+- with **one point** on, it is added and existing points stay; with only Point 2, the curve is applied to the last existing point inside the selection;
+- with **both off**, nothing changes.
 
-A point is added after any point already at the same time. If the lane has no automation yet, it is created. The whole edit is one Undo step, "Add Automation Points".
+A point is added after any point already at the same time. A lane with no automation yet gets it. The dialog opens with the choices last confirmed with **OK** (Point 1, Point 2, curve); Hold starts as Hold mode is.
 
-The dialog opens with the choices last confirmed with **OK**: Point 1, Point 2 and the curve; Hold starts as Hold mode is (below). The point values always start at the automation's current values.
+### Without the dialog
 
-## Without the dialog: Add Automation Points
+**Add Automation Points** (no "…") adds the points at once, like Bitwig's Quantize beside Quantize…:
 
-As Bitwig's **Quantize** beside **Quantize…**, **Add Automation Points** (no "…") adds the points at once, with no dialog:
-
-- Point 1 and Point 2 take the automation's values at the start and the end of the time selection (the values the dialog opens with);
-- which points and the curve are the dialog's last choices confirmed with **OK** (before the dialog has been used: both points, curve 0%);
+- Point 1 and Point 2 take the automation's values at the start and the end of the time selection;
+- which points and the curve are the dialog's last choices (before the dialog is ever used: both points, curve 0%);
 - the points are hold points when Hold mode is on.
 
-It has no menu entry: give it a key in **Settings > Shortcuts**, or run it from the Commander. Like the dialog's shortcut, it runs on the last time selection made on an automation lane, as one Undo step. **Add Automation Points…** (the dialog) can have a key of its own too.
+It has no menu entry: give it a key in **Settings > Shortcuts**, or run it from the Commander.
 
-The last choices are kept in `mods/automations-plus/settings.properties` in BML's settings folder.
+### Automation clips
+
+On an arranger automation lane, a time selection inside an **automation clip** edits the clip's own points, as Bitwig plays them: the selection is mapped into the clip's time (position, play start, loop). The clip's content changes, so a looped clip changes in every pass, and clips that share content change together.
+
+A time selection only partly inside a clip, covering more than one clip, or crossing the end of a loop pass has no single place for its points: the entry isn't shown (from a shortcut or the Commander, nothing happens and the reason is logged). Outside clips, the lane's own automation is edited.
 
 ## Hold mode
 
-**Toggle Hold for New Automation Points** switches Hold mode on and off; give it a key in **Settings > Shortcuts** (or run it from the Commander). Bitwig's transient notification says "New automation points: Hold" or "New automation points: Linear". Hold mode is kept when Bitwig restarts.
+**Toggle Hold for New Automation Points** switches Hold mode on and off. Give it a key in **Settings > Shortcuts**, or run it from the Commander. Bitwig's notification shows "New automation points: Hold" or "New automation points: Linear", and the mode is kept when Bitwig restarts.
 
-With Hold mode on, new points are hold points (the value stays until the next point, then jumps):
+With Hold mode on, new points are hold points:
 
 - points made with the mouse: click, double-click, click-and-drag on a curve, and the pencil;
-- points from this mod: the dialog's Hold starts on, and Add Automation Points (no dialog) makes hold points.
+- points added by this mod: the dialog's Hold starts on, and Add Automation Points (no dialog) makes hold points.
 
-Bitwig's own hold modifier is inverted: held while clicking or drawing, it makes a linear point. Moving an existing point never changes its type, and recorded automation is not changed. The mouse tools are Bitwig's timeline curve tools, so Hold mode also applies to other curves they edit that have hold points; a curve without hold points is unchanged for a click (Bitwig checks), as with Bitwig's own modifier.
+Bitwig's own hold modifier is inverted: held while clicking or drawing, it makes a linear point. Moving an existing point never changes its type, and recorded automation isn't affected.
 
 ## Automation Tools
 
-After FL Studio's automation clip tools. Right-click **selected automation points** (in the arranger or the detail editor), a **selected clip** in the arranger, or a **time selection** on an automation lane (or use the time-selection toolbar's dropdown), then **Automation Tools…**. The dialog opens on the last tool used; the buttons at its top switch tools in place.
+Inspired by FL Studio's automation clip tools. Right-click **selected automation points** (arranger or detail editor), a **selected clip** in the arranger, or a **time selection** on an automation lane (or use the time-selection toolbar's dropdown), then choose **Automation Tools…**. The dialog opens on the last tool used; the buttons at its top switch tools.
 
-| Tool | Setting | What it does |
+| Tool | Settings | What it does |
 |---|---|---|
-| **Scale Levels** | Center, Tension, Multiply (0–200 %), Offset | Scales the levels around a center: Center 0 is the parameter's zero, -100 the bottom of the lane, 100 the top. Tension bends the levels away from (positive) or towards (negative) the center; Offset then moves them all up or down. |
+| **Scale Levels** | Center, Tension, Multiply (0–200 %), Offset | Scales the levels around a center (0 = the parameter's zero, -100 = bottom of the lane, 100 = top). Tension bends them away from (positive) or towards (negative) the center; Offset moves them all up or down. |
 | **Normalize** | | Scales the levels around the parameter's zero so the one furthest from it reaches the edge of the lane. |
-| **Flip** | | Turns the levels upside down on the lane. |
-| **Smooth** | Amount (0–100 %) | A low-pass filter: it removes the automation's fast movements (high frequencies) and keeps its slow ones. The automation is sampled as it plays (Bitwig's own curves), filtered, then each point takes the filtered value and each segment the curve that follows it best. It also simplifies: the points that add little to the smoothed automation are removed (more as the amount grows), the segments that replace them getting the curve that follows them. 0 changes nothing; the higher the amount, the slower the movements it keeps (100 keeps only the slowest movement of the selection). Points don't move in time and none is added; the first and last points stay and keep their values. |
-| **Decimate** | Remove (0–100 %) | Removes that share of the points between the first and the last, spread evenly: 50 % removes one point in two, 25 % one in four, 33 % one in three, 100 % all of them (only the first and last stay). Values don't change; each segment that now runs over removed points gets the curve (Bitwig's own shape) that follows them best. |
+| **Flip** | | Turns the levels upside down. |
+| **Smooth** | Amount (0–100 %) | A low-pass filter: removes fast movements and keeps slow ones, then removes the points that add little. Points don't move in time; the first and last points keep their values. |
+| **Decimate** | Remove (0–100 %) | Removes that share of the points between the first and the last, spread evenly (50 % = one in two). Values don't change; each new segment gets the curve that follows the removed points best. |
 
-- **One lane.** Selected points must all be on one lane (its own automation and its automation clips together); a selected clip works on the points that play between its start and end in the arranger: for an automation clip, only the part of it the arranger plays, on its lane; for another clip (audio, notes), the automation under it on the track's automation lane last used for a time selection (select one clip; clips that share content change together). A time selection works on its lane: the lane's own points and the points of the automation clips it crosses, even partly (a looped clip's point once, where it first plays in the time selection). Each point is written back into its own curve, the lane's or its clip's; a segment's curve is changed only where it stays in one curve.
-- **Zero** is found automatically: for a parameter whose range runs from -x to +x (pan, pitch…), zero is in the middle of the lane and Scale Levels and Normalize work around it, so levels are never pushed to the bottom.
-- **Live preview.** The automation as it is (grey) and as the tool would leave it (orange; a removed point in red), with Bitwig's own segment curves, redrawn as you change the setting. Nothing changes until **OK**, which writes it as one Undo step; **Cancel** leaves it as it was.
-- **Reset** puts the tool's settings back to their defaults; each tool remembers its settings.
-- When there are no points to work on, Bitwig's notification says why (and the mod log says what was right-clicked).
-- Each tool is also an action of its own (**Automation Tools: …** in Settings > Shortcuts, or the Commander); from a shortcut, it works on the time selection.
+- **One lane.** Selected points must all be on one lane (its own automation and its automation clips). A selected automation clip works on the part the arranger plays; another clip (audio, notes) works on the automation under it on the track's last-used automation lane. A time selection works on its lane, including the automation clips it crosses.
+- **Zero is found automatically**: for a parameter running from -x to +x (pan, pitch…), zero is the middle of the lane, so Scale Levels and Normalize never push levels to the bottom.
+- **Live preview**: the automation as it is (grey) and as the tool would leave it (orange, removed points in red). Nothing changes until **OK**; **Cancel** leaves everything as it was.
+- **Reset** restores the tool's defaults; each tool remembers its settings.
+- Each tool is also an action (**Automation Tools: …** in Settings > Shortcuts or the Commander); from a shortcut it works on the time selection.
+
+## Actions
+
+No action has a key by default: assign them in **Settings > Shortcuts**.
+
+| Action | Also in |
+|---|---|
+| Add Automation Points… | time-selection menu and toolbar |
+| Add Automation Points | Commander only |
+| Toggle Hold for New Automation Points | Commander only |
+| Automation Tools… | point, clip and time-selection menus |
+| Automation Tools: Scale Levels / Normalize / Flip / Smooth / Decimate | Commander only |
+
+Settings and last choices are kept in `mods/automations-plus/settings.properties` in Patchbay's settings folder (`~/.config/bml` on Linux).
+
+## Credits
+
+Based on [Add Automation Points](https://github.com/shaboogen-dev/Mods) by shaboogen (MIT licence). Automations+ has its own mod ID (`automations-plus`), so it can be installed beside the original; enable only one of the two.
+
+Unofficial community project, not affiliated with Bitwig GmbH.

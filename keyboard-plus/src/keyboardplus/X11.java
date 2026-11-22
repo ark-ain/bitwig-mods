@@ -26,7 +26,8 @@ import java.util.List;
  *
  * Connection setup, authentication and the property/X-Resource requests follow Patchbay's
  * X11WindowClose (MIT licence, (c) 2026 shaboogen). Added here: a non-blocking reader with an
- * event queue, key grabs, keyboard mapping and SendEvent for key events.
+ * event queue, listening to key events on other clients' windows, keyboard mapping and SendEvent
+ * for key events. Nothing here grabs the keyboard.
  */
 final class X11 implements Closeable {
     static final int BAD_WINDOW = 3, BAD_ACCESS = 10;
@@ -220,33 +221,32 @@ final class X11 implements Closeable {
         return 0;
     }
 
-    /** Passive grab of one key with exact modifiers on a window; returns the request's sequence. */
-    int grabKey(long window, int keycode, int modifiers) throws IOException {
-        ByteBuffer b = request(33, 0, 4);       // GrabKey, owner_events=false
-        b.putInt((int) window).putShort((short) modifiers).put((byte) keycode)
-         .put((byte) 1).put((byte) 1);          // pointer and keyboard: asynchronous
-        send(b);
-        return sequence;
-    }
+    static final int KEY_PRESS_MASK = 1, KEY_RELEASE_MASK = 2, SUBSTRUCTURE_NOTIFY_MASK = 0x80000;
 
-    void ungrabKey(long window, int keycode, int modifiers) throws IOException {
-        ByteBuffer b = request(34, keycode, 3); // UngrabKey
-        b.putInt((int) window).putShort((short) modifiers).putShort((short) 0);
-        send(b);
-    }
-
-    /** Active keyboard grab: every key comes here until {@link #ungrabKeyboard}. Returns X's status (0 = success). */
-    int grabKeyboard(long window, int time) throws IOException {
-        ByteBuffer b = request(31, 0, 4);       // GrabKeyboard, owner_events=false
-        b.putInt((int) window).putInt(time).put((byte) 1).put((byte) 1).putShort((short) 0); // async, async
+    /** {all clients' event masks, this client's event mask} on a window, or null if it is gone. */
+    int[] eventMasks(long window) throws IOException {
+        ByteBuffer b = request(3, 0, 2);        // GetWindowAttributes
+        b.putInt((int) window);
         ByteBuffer r = call(b);
-        return r == null ? -1 : Byte.toUnsignedInt(r.get(1));
+        return r == null ? null : new int[]{r.getInt(32), r.getInt(36)};
     }
 
-    void ungrabKeyboard() throws IOException {
-        ByteBuffer b = request(32, 0, 2);       // UngrabKeyboard
-        b.putInt(0);                            // CurrentTime
+    /**
+     * Sets the events this client listens to on a window. Several clients may listen to the keys of
+     * one window: the owner still gets them, nothing is taken away from it.
+     */
+    void selectInput(long window, int mask) throws IOException {
+        ByteBuffer b = request(2, 0, 4);        // ChangeWindowAttributes
+        b.putInt((int) window).putInt(0x800).putInt(mask); // CWEventMask
         send(b);
+    }
+
+    /** Which keys are down right now: 256 bits, keycode k at byte k/8, bit k%8. */
+    byte[] queryKeymap() throws IOException {
+        ByteBuffer r = call(request(44, 0, 1)); // QueryKeymap
+        byte[] keys = new byte[32];
+        if (r != null) r.get(8, keys);
+        return keys;
     }
 
     /** Sends a synthetic KeyPress or KeyRelease to the window's owner. */

@@ -1,26 +1,21 @@
-# Bitwig Mods: Automations+ and Keyboard+
+# Bitwig Mods by ark-ain
 
-Two mods by ark-ain for **Bitwig Studio** running on [Patchbay](https://github.com/shaboogen-dev/Patchbay).
-
-> Unofficial community project. Not affiliated with, endorsed by or supported by Bitwig GmbH.
+Mods for **Bitwig Studio** running on [Patchbay](https://github.com/shaboogen-dev/Patchbay).
 
 | Mod | Platform | What it does |
 |---|---|---|
-| [Arranger: Automations+](automations-plus/README.md) | Windows, macOS, Linux | Adds points over an automation time selection (dialog or direct), a Hold mode for new automation points, and Automation Tools after FL Studio's (Scale Levels, Normalize, Flip, Smooth, Decimate) with a live preview. Based on shaboogen's *Add Automation Points*. |
-| [Interface: Keyboard+ (Linux)](keyboard-plus/README.md) | **Linux only** | While a plug-in window has the focus, the keyboard still goes to Bitwig: play notes with the computer keyboard, Space for the transport, Bitwig's shortcuts. Works in an X11 session and under Wayland with Bitwig running in Xwayland. Does nothing on Windows or macOS. |
+| [Arranger: Automations+](automations-plus/README.md) | Windows, macOS, Linux | Add automation points over a time selection (dialog or one keystroke), a Hold mode for step automation, and Automation Tools (Scale Levels, Normalize, Flip, Smooth, Decimate) with a live preview. |
+| [Interface: Keyboard+ (Linux)](keyboard-plus/README.md) | **Linux only** | Keeps the keyboard working in Bitwig while a plug-in window has the focus: play notes, Space for the transport, Bitwig's shortcuts. X11 or Xwayland. |
 
 Both need **Framework: Actions and Menus**, which comes with Patchbay.
 
 ## Install
 
-1. Download the mod ZIPs from [Releases](../../releases).
-2. In Patchbay: **Mods → Add Mod…**, pick the ZIP, tick the mod (and Framework: Actions and Menus), then **Load**.
-
-## Tested with
-
-- Bitwig Studio 6.1.4 on Linux x64 (both mods are built against the Linux 6.1.4 names; Patchbay's maps translate Automations+ to the other platforms and versions).
-- Keyboard+ was tested on a virtual X server; on real hardware, please report what you find.
+- **Manually:** download the mod ZIPs from [Releases](https://github.com/ark-ain/bitwig-mods/releases), then in Patchbay **Mods → Add Mod…**, tick the mod and **Load**.
+- **Patchbay Launcher:** **Sources → Mods → + Add**, enter `ark-ain/bitwig-mods`.
 
 ## Licence
 
-MIT, see [LICENSE](LICENSE). Automations+ keeps shaboogen's copyright notice (`automations-plus/LICENSE`).
+MIT, see [LICENSE](LICENSE). Automations+ is based on shaboogen's Add Automation Points and keeps its copyright notice (`automations-plus/LICENSE`).
+
+Unofficial community project, not affiliated with, endorsed by or supported by Bitwig GmbH.
